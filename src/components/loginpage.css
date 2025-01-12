@@ -1,0 +1,175 @@
+/* LoginPage.css */
+
+/* Container for the entire login page */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #8e44ad, #3498db);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Card-like container for the form */
+.login-card {
+  background: #cddef0;
+  padding: 40px 30px;
+  border-radius: 20px;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+/* Form title */
+.login-title {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  text-align: center;
+}
+
+/* Form element */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input group container */
+.input-group {
+  margin-bottom: 20px;
+}
+
+/* Input labels */
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Input fields */
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #dfe6e9;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+/* Input field focus state */
+.input-group input:focus {
+  border-color: #8e44ad;
+}
+
+/* Wrapper for password input and toggle button */
+.password-input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Show/hide password button */
+.show-password-btn {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #8e44ad;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Show/hide password button hover state */
+.show-password-btn:hover {
+  background-color: #6c3483;
+}
+
+/* Submit button */
+.login-button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #8e44ad, #3498db);
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* Submit button hover state */
+.login-button:hover {
+  background: linear-gradient(135deg, #6c3483, #2980b9);
+}
+
+/* Signup text below the form */
+.signup-text {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+/* Link to login page */
+.signup-text a {
+  color: #8e44ad;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Link hover state */
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 30px 20px;
+  }
+  .login-title {
+    font-size: 24px;
+  }
+  .login-button {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 10px;
+  }
+  .login-card {
+    padding: 20px 15px;
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+  }
+  .login-title {
+    font-size: 20px;
+  }
+  .input-group label {
+    font-size: 12px;
+  }
+  .input-group input {
+    font-size: 12px;
+    padding: 10px;
+  }
+  .login-button {
+    font-size: 14px;
+    padding: 12px;
+  }
+  .signup-text {
+    font-size: 12px;
+  }
+}
