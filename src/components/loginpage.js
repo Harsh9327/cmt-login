@@ -1,81 +1,99 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
- import './loginpage.css';
- 
+import './loginpage.css';
 
 export const loginpage = () => {
+  const [formData, setFormData] = useState({
+    userName: '',
+    email: '',
+    password: '',
+    showPassword: false,
+  });
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  // Handle input change for all fields
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Handle toggle for show/hide password
+  const toggleShowPassword = () => {
+    setFormData((prevData) => ({
+      ...prevData,
+      showPassword: !prevData.showPassword,
+    }));
+  };
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Username:=', userName, 'Email:=', email, 'Password:=', password);
+    console.log('Username:=', formData.userName, 'Email:=', formData.email, 'Password:=', formData.password);
   };
 
   return (
-    <div className="login-container"> {/* Container for the entire login page */}
-      <div className="login-card"> {/* Card-like container for the form */}
-        <h2 className="login-title">Login</h2> {/* Form title */}
-        <form onSubmit={handleSubmit} className="login-form"> {/* Form element with submit handler */}
-          <div className="input-group"> {/* Input group for username */}
+    <div className="login-container">
+      <div className="login-card">
+        <h2 className="login-title">Login</h2>
+        <form onSubmit={handleSubmit} className="login-form">
+          {/* <div className="input-group">
             <label htmlFor="username">Username</label>
             <input
               type="text"
               id="username"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
+              name="userName"
+              value={formData.userName}
+              onChange={handleChange}
               required
               placeholder="Enter your username"
             />
-          </div>
+          </div> */}
 
-          <div className="input-group"> {/* Input group for email */}
+          <div className="input-group">
             <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               required
               placeholder="Enter your email"
             />
           </div>
 
-          <div className="input-group"> {/* Input group for password */}
+          <div className="input-group">
             <label htmlFor="password">Password</label>
-            <div className="password-input-wrapper"> {/* Wrapper for password input and toggle button */}
+            <div className="password-input-wrapper">
               <input
-                type={showPassword ? 'text' : 'password'}
+                type={formData.showPassword ? 'text' : 'password'}
                 id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 required
                 placeholder="Enter your password"
               />
               <button
                 type="button"
                 className="show-password-btn"
-                onClick={() => setShowPassword(!showPassword)}
+                onClick={toggleShowPassword}
               >
-                {showPassword ? 'Hide' : 'Show'} {/* Toggle button text */}
+                {formData.showPassword ? 'Hide' : 'Show'}
               </button>
             </div>
           </div>
 
-          <button type="submit" className="login-button">Login</button> {/* Submit button */}
+          <button type="submit" className="login-button">Login</button>
         </form>
-        <p className="signup-text"> {/* Link to login page for existing users */}
+        <p className="signup-text">
           Don't have an account? <a href="/">Sign Up</a>
         </p>
       </div>
     </div>
   );
-  
-}
- export default loginpage;
+};
 
+export default loginpage;
